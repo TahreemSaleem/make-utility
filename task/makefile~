@@ -1,0 +1,13 @@
+mine: main.o matrix.o vector.o 
+	g++ main.o matrix.o vector.o -pthread
+matrix.o: matrix.cc matrix.h
+	g++ -c matrix.cc
+vector.o: vector.cc vector.h matrix.h
+	g++ -c vector.cc
+main.o:main.cc matrix.h vector.h
+	g++ -c main.cc
+clean:
+	rm matrix.o vector.o 
+
+
+
